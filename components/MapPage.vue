@@ -2,6 +2,12 @@
   <div class="map-wrap">
     <!-- Mapbox 會把地圖畫在這個 DOM 節點裡。 -->
     <div ref="mapContainer" class="map"></div>
+    <div v-if="tokenMissing" class="token-warning">
+      <div class="token-warning__title">Missing Mapbox token</div>
+      <div class="token-warning__body">
+        Set <code>NUXT_PUBLIC_MAPBOX_TOKEN</code> (runtimeConfig public) for this deployment.
+      </div>
+    </div>
     <CountyPopup
       :open="Boolean(selectedCounty)"
       :county="selectedCounty"
@@ -36,6 +42,8 @@ const handlePopupClose = () => {
   selectedCounty.value = null;
   resetMapView?.();
 };
+
+const tokenMissing = ref(false);
 
 /** 點位名稱 → GeoJSON 縣市名稱（public/data/twCounty2010.geo.json） */
 function countyNameForBoundaryLayer(pointName: string) {
@@ -220,7 +228,10 @@ onMounted(async () => {
   const mapboxToken = config.public.mapboxToken;
 
   // runtimeConfig.public 的型別可能是 unknown，這裡先確認 token 是有效字串。
-  if (typeof mapboxToken !== "string" || !mapboxToken) return;
+  if (typeof mapboxToken !== "string" || !mapboxToken) {
+    tokenMissing.value = true;
+    return;
+  }
 
   mapboxgl.default.accessToken = mapboxToken;
 
@@ -574,5 +585,32 @@ onBeforeUnmount(() => {
 .map {
   width: 100%;
   height: 100%;
+}
+
+.token-warning {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  max-width: min(520px, calc(100vw - 32px));
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(10, 12, 18, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  line-height: 1.35;
+  pointer-events: auto;
+}
+
+.token-warning__title {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.token-warning code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 0.95em;
 }
 </style>
