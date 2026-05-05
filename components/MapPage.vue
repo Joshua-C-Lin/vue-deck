@@ -5,7 +5,8 @@
     <div v-if="tokenMissing" class="token-warning">
       <div class="token-warning__title">Missing Mapbox token</div>
       <div class="token-warning__body">
-        Set <code>NUXT_PUBLIC_MAPBOX_TOKEN</code> (runtimeConfig public) for this deployment.
+        Set <code>NUXT_PUBLIC_MAPBOX_TOKEN</code> (runtimeConfig public) for
+        this deployment.
       </div>
     </div>
     <CountyPopup
@@ -538,6 +539,39 @@ onMounted(async () => {
   const onMapReady = async () => {
     setupTerrain(map);
 
+    /**
+     * 山脈陰影（hillshade）
+     * - 使用上方 `setupTerrain()` 加入的 DEM（source id: mapbox-dem）
+     * - 目的：讓山稜/山谷輪廓更明顯（比單純 terrain 更「有陰影層次」）
+     *
+     * 註：hillshade 是 Mapbox 原生 layer，效能通常比逐幀改樣式的「假陰影」更穩定。
+     */
+    const HILLSHADE_LAYER_ID = "terrain-hillshade";
+    if (!map.getLayer(HILLSHADE_LAYER_ID)) {
+      map.addLayer({
+        id: HILLSHADE_LAYER_ID,
+        type: "hillshade",
+        source: "mapbox-dem",
+        paint: {
+          // 陰影強度（越大越立體，但也越容易把底圖吃掉）
+          "hillshade-exaggeration": 0.55,
+          // 暗部
+          "hillshade-shadow-color": "rgba(0,0,0,0.55)",
+          // 亮部
+          "hillshade-highlight-color": "rgba(255,255,255,0.12)",
+          // 過渡/稜線色：稍微帶一點藍，配合 dark-v11 的科技感
+          "hillshade-accent-color": "rgba(40,110,255,0.10)",
+        },
+      });
+    }
+
+    // 調整光源方向/高度，讓陰影更像「斜射光」而不是正上方打光。
+    // position: [r, azimuth, altitude]（方位角與高度角的概念）
+    map.setLight({
+      anchor: "map",
+      position: [1.2, 210, 50],
+    });
+
     // 縣市邊界（面積覆蓋呼吸）資料：public/data/twCounty2010.geo.json
     if (!map.getSource(COUNTY_SOURCE_ID)) {
       // 避免以 "/" 開頭繞過 baseURL（GitHub Pages 子路徑）
@@ -700,7 +734,8 @@ onBeforeUnmount(() => {
 }
 
 .token-warning code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
   font-size: 0.95em;
 }
