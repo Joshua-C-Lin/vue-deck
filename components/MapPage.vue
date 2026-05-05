@@ -280,7 +280,17 @@ onMounted(async () => {
   let countyHighlightReady = false;
   const COUNTY_SOURCE_ID = "tw-counties";
   const COUNTY_FILL_LAYER_ID = "tw-county-highlight-fill";
+  /**
+   * 選取縣市邊框（霓虹效果）：
+   * - LINE：基底描邊（較薄、透明度較低）
+   * - CORE：光核（更亮、更細，讓邊緣看起來「發光有骨」）
+   * - GLOW：光暈（更寬 + blur，形成外圍泛光）
+   *
+   * 為了避免「卡卡的」：這裡只做呼吸（opacity/blur/width 的小幅變化），不做逐幀 dasharray/offset。
+   */
   const COUNTY_LINE_LAYER_ID = "tw-county-highlight-line";
+  const COUNTY_LINE_CORE_LAYER_ID = "tw-county-highlight-line-core";
+  const COUNTY_LINE_GLOW_LAYER_ID = "tw-county-highlight-line-glow";
 
   resetMapView = () => {
     map.flyTo({
@@ -314,6 +324,8 @@ onMounted(async () => {
     if (!county) {
       map.setFilter(COUNTY_FILL_LAYER_ID, ["==", ["get", "name"], ""]);
       map.setFilter(COUNTY_LINE_LAYER_ID, ["==", ["get", "name"], ""]);
+      map.setFilter(COUNTY_LINE_CORE_LAYER_ID, ["==", ["get", "name"], ""]);
+      map.setFilter(COUNTY_LINE_GLOW_LAYER_ID, ["==", ["get", "name"], ""]);
       return;
     }
 
@@ -321,6 +333,8 @@ onMounted(async () => {
     const [r, g, b] = countyPinColors(county.status, brighten);
     map.setFilter(COUNTY_FILL_LAYER_ID, countyLayerFilter(boundaryName));
     map.setFilter(COUNTY_LINE_LAYER_ID, countyLayerFilter(boundaryName));
+    map.setFilter(COUNTY_LINE_CORE_LAYER_ID, countyLayerFilter(boundaryName));
+    map.setFilter(COUNTY_LINE_GLOW_LAYER_ID, countyLayerFilter(boundaryName));
 
     map.setPaintProperty(
       COUNTY_FILL_LAYER_ID,
@@ -329,6 +343,16 @@ onMounted(async () => {
     );
     map.setPaintProperty(
       COUNTY_LINE_LAYER_ID,
+      "line-color",
+      `rgb(${r},${g},${b})`,
+    );
+    map.setPaintProperty(
+      COUNTY_LINE_CORE_LAYER_ID,
+      "line-color",
+      `rgb(${r},${g},${b})`,
+    );
+    map.setPaintProperty(
+      COUNTY_LINE_GLOW_LAYER_ID,
       "line-color",
       `rgb(${r},${g},${b})`,
     );
@@ -343,6 +367,37 @@ onMounted(async () => {
       "line-opacity",
       PIN_TUNING.countyHighlight.lineOpacityBase +
         PIN_TUNING.countyHighlight.lineOpacityBreath * brighten,
+    );
+
+    // 霓虹三層：只做呼吸，不做流動（避免逐幀更新 dasharray 的卡頓）
+    // - CORE：亮、細、blur 幾乎為 0（視覺上像「光核」）
+    map.setPaintProperty(
+      COUNTY_LINE_CORE_LAYER_ID,
+      "line-opacity",
+      0.7 + 0.25 * brighten,
+    );
+    map.setPaintProperty(COUNTY_LINE_CORE_LAYER_ID, "line-blur", 0.15);
+    map.setPaintProperty(
+      COUNTY_LINE_CORE_LAYER_ID,
+      "line-width",
+      PIN_TUNING.countyHighlight.lineWidth + 0.9 + 0.35 * brighten,
+    );
+
+    // - GLOW：寬 + blur（視覺上像外圍泛光）
+    map.setPaintProperty(
+      COUNTY_LINE_GLOW_LAYER_ID,
+      "line-opacity",
+      0.18 + 0.25 * brighten,
+    );
+    map.setPaintProperty(
+      COUNTY_LINE_GLOW_LAYER_ID,
+      "line-blur",
+      2.2 + 2.2 * brighten,
+    );
+    map.setPaintProperty(
+      COUNTY_LINE_GLOW_LAYER_ID,
+      "line-width",
+      PIN_TUNING.countyHighlight.lineWidth + 5.5 + 2.0 * brighten,
     );
   };
 
@@ -512,6 +567,42 @@ onMounted(async () => {
           "line-color": "rgb(0,0,0)",
           "line-opacity": 0,
           "line-width": PIN_TUNING.countyHighlight.lineWidth,
+        },
+        filter: ["==", ["get", "name"], ""],
+      });
+
+      // 霓虹核心描邊：亮、細，讓輪廓看起來更銳利
+      map.addLayer({
+        id: COUNTY_LINE_CORE_LAYER_ID,
+        type: "line",
+        source: COUNTY_SOURCE_ID,
+        paint: {
+          "line-color": "rgb(0,0,0)",
+          "line-opacity": 0,
+          "line-width": PIN_TUNING.countyHighlight.lineWidth + 1.2,
+          "line-blur": 0.15,
+        },
+        layout: {
+          "line-cap": "round",
+          "line-join": "round",
+        },
+        filter: ["==", ["get", "name"], ""],
+      });
+
+      // 外圍泛光描邊：更寬 + blur，形成霓虹外暈
+      map.addLayer({
+        id: COUNTY_LINE_GLOW_LAYER_ID,
+        type: "line",
+        source: COUNTY_SOURCE_ID,
+        paint: {
+          "line-color": "rgb(0,0,0)",
+          "line-opacity": 0,
+          "line-width": PIN_TUNING.countyHighlight.lineWidth + 5.5,
+          "line-blur": 2.2,
+        },
+        layout: {
+          "line-cap": "round",
+          "line-join": "round",
         },
         filter: ["==", ["get", "name"], ""],
       });
