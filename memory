@@ -1,0 +1,721 @@
+{
+  "asset": {
+    "generator": "glTF-Transform v4.3.0",
+    "version": "2.0"
+  },
+  "accessors": [
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 194,
+      "max": [
+        0.5799999833106995,
+        0.75,
+        0.5799999833106995
+      ],
+      "min": [
+        -0.5799999833106995,
+        -0.8199999928474426,
+        -0.5799999833106995
+      ],
+      "bufferView": 0,
+      "byteOffset": 0
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 194,
+      "bufferView": 0,
+      "byteOffset": 12
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 576,
+      "bufferView": 1,
+      "byteOffset": 0
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 6912,
+      "bufferView": 1,
+      "byteOffset": 1152
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 6912,
+      "bufferView": 1,
+      "byteOffset": 14976
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 1152,
+      "max": [
+        0.5450000166893005,
+        0.02500000037252903,
+        0.5450000166893005
+      ],
+      "min": [
+        -0.5450000166893005,
+        -0.02500000037252903,
+        -0.5450000166893005
+      ],
+      "bufferView": 2,
+      "byteOffset": 0
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 1152,
+      "bufferView": 2,
+      "byteOffset": 12
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 1152,
+      "max": [
+        0.675000011920929,
+        0.054999999701976776,
+        0.675000011920929
+      ],
+      "min": [
+        -0.675000011920929,
+        -0.054999999701976776,
+        -0.675000011920929
+      ],
+      "bufferView": 3,
+      "byteOffset": 0
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 1152,
+      "bufferView": 3,
+      "byteOffset": 12
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5126,
+      "count": 7,
+      "max": [
+        4
+      ],
+      "min": [
+        0
+      ],
+      "bufferView": 4,
+      "byteOffset": 0
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 7,
+      "bufferView": 4,
+      "byteOffset": 28
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 7,
+      "bufferView": 4,
+      "byteOffset": 112
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 7,
+      "bufferView": 4,
+      "byteOffset": 196
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 7,
+      "bufferView": 4,
+      "byteOffset": 280
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 7,
+      "bufferView": 4,
+      "byteOffset": 364
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 7,
+      "bufferView": 4,
+      "byteOffset": 448
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 7,
+      "bufferView": 4,
+      "byteOffset": 532
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 7,
+      "bufferView": 4,
+      "byteOffset": 616
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 7,
+      "bufferView": 4,
+      "byteOffset": 700
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 7,
+      "bufferView": 4,
+      "byteOffset": 784
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 7,
+      "bufferView": 4,
+      "byteOffset": 868
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 7,
+      "bufferView": 4,
+      "byteOffset": 952
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 7,
+      "bufferView": 4,
+      "byteOffset": 1036
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 7,
+      "bufferView": 4,
+      "byteOffset": 1120
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 7,
+      "bufferView": 4,
+      "byteOffset": 1204
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 7,
+      "bufferView": 4,
+      "byteOffset": 1288
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteLength": 4656,
+      "byteStride": 24,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 4656,
+      "byteLength": 28800,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 33456,
+      "byteLength": 27648,
+      "byteStride": 24,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 61104,
+      "byteLength": 27648,
+      "byteStride": 24,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 88752,
+      "byteLength": 1372
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "buffer.bin",
+      "byteLength": 90124
+    }
+  ],
+  "materials": [
+    {
+      "name": "Aqua glowing cone",
+      "alphaMode": "BLEND",
+      "doubleSided": true,
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.05,
+          0.95,
+          1,
+          0.82
+        ],
+        "roughnessFactor": 0.22,
+        "metallicFactor": 0
+      },
+      "emissiveFactor": [
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "Deep blue translucent halo",
+      "alphaMode": "BLEND",
+      "doubleSided": true,
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0,
+          0.22,
+          1,
+          0.24
+        ],
+        "roughnessFactor": 0.6,
+        "metallicFactor": 0
+      },
+      "emissiveFactor": [
+        0,
+        0.25,
+        1
+      ]
+    },
+    {
+      "name": "Pulsing cyan ring",
+      "alphaMode": "BLEND",
+      "doubleSided": true,
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.1,
+          0.95,
+          1,
+          0.62
+        ],
+        "roughnessFactor": 0.18,
+        "metallicFactor": 0
+      },
+      "emissiveFactor": [
+        0,
+        1,
+        1
+      ]
+    }
+  ],
+  "meshes": [
+    {
+      "name": "inverted_cone_marker",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1
+          },
+          "mode": 4,
+          "material": 0,
+          "indices": 2
+        }
+      ]
+    },
+    {
+      "name": "glowing_pulse_ring",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 5,
+            "NORMAL": 6
+          },
+          "mode": 4,
+          "material": 2,
+          "indices": 3
+        }
+      ]
+    },
+    {
+      "name": "soft_blue_outer_halo",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 7,
+            "NORMAL": 8
+          },
+          "mode": 4,
+          "material": 1,
+          "indices": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "name": "Glowing inverted cone / top body",
+      "mesh": 0
+    },
+    {
+      "name": "Soft blue top halo",
+      "translation": [
+        0,
+        0.62,
+        0
+      ],
+      "scale": [
+        1.05,
+        1,
+        1.05
+      ],
+      "mesh": 2
+    },
+    {
+      "name": "Rising light ring 1",
+      "translation": [
+        0,
+        -0.68,
+        0
+      ],
+      "scale": [
+        0.05,
+        0.05,
+        0.05
+      ],
+      "mesh": 1
+    },
+    {
+      "name": "Rising light ring 2",
+      "translation": [
+        0,
+        -0.68,
+        0
+      ],
+      "scale": [
+        0.05,
+        0.05,
+        0.05
+      ],
+      "mesh": 1
+    },
+    {
+      "name": "Rising light ring 3",
+      "translation": [
+        0,
+        -0.68,
+        0
+      ],
+      "scale": [
+        0.05,
+        0.05,
+        0.05
+      ],
+      "mesh": 1
+    },
+    {
+      "name": "Rising light ring 4",
+      "translation": [
+        0,
+        -0.68,
+        0
+      ],
+      "scale": [
+        0.05,
+        0.05,
+        0.05
+      ],
+      "mesh": 1
+    },
+    {
+      "name": "Rising light ring 5",
+      "translation": [
+        0,
+        -0.68,
+        0
+      ],
+      "scale": [
+        0.05,
+        0.05,
+        0.05
+      ],
+      "mesh": 1
+    },
+    {
+      "name": "Rising light ring 6",
+      "translation": [
+        0,
+        -0.68,
+        0
+      ],
+      "scale": [
+        0.05,
+        0.05,
+        0.05
+      ],
+      "mesh": 1
+    },
+    {
+      "name": "Rising light ring 7",
+      "translation": [
+        0,
+        -0.68,
+        0
+      ],
+      "scale": [
+        0.05,
+        0.05,
+        0.05
+      ],
+      "mesh": 1
+    },
+    {
+      "name": "Rising light ring 8",
+      "translation": [
+        0,
+        -0.68,
+        0
+      ],
+      "scale": [
+        0.05,
+        0.05,
+        0.05
+      ],
+      "mesh": 1
+    }
+  ],
+  "animations": [
+    {
+      "name": "Bottom-to-top glowing ring pulse loop",
+      "samplers": [
+        {
+          "input": 9,
+          "output": 10,
+          "interpolation": "LINEAR"
+        },
+        {
+          "input": 9,
+          "output": 11,
+          "interpolation": "LINEAR"
+        },
+        {
+          "input": 9,
+          "output": 12,
+          "interpolation": "LINEAR"
+        },
+        {
+          "input": 9,
+          "output": 13,
+          "interpolation": "LINEAR"
+        },
+        {
+          "input": 9,
+          "output": 14,
+          "interpolation": "LINEAR"
+        },
+        {
+          "input": 9,
+          "output": 15,
+          "interpolation": "LINEAR"
+        },
+        {
+          "input": 9,
+          "output": 16,
+          "interpolation": "LINEAR"
+        },
+        {
+          "input": 9,
+          "output": 17,
+          "interpolation": "LINEAR"
+        },
+        {
+          "input": 9,
+          "output": 18,
+          "interpolation": "LINEAR"
+        },
+        {
+          "input": 9,
+          "output": 19,
+          "interpolation": "LINEAR"
+        },
+        {
+          "input": 9,
+          "output": 20,
+          "interpolation": "LINEAR"
+        },
+        {
+          "input": 9,
+          "output": 21,
+          "interpolation": "LINEAR"
+        },
+        {
+          "input": 9,
+          "output": 22,
+          "interpolation": "LINEAR"
+        },
+        {
+          "input": 9,
+          "output": 23,
+          "interpolation": "LINEAR"
+        },
+        {
+          "input": 9,
+          "output": 24,
+          "interpolation": "LINEAR"
+        },
+        {
+          "input": 9,
+          "output": 25,
+          "interpolation": "LINEAR"
+        }
+      ],
+      "channels": [
+        {
+          "sampler": 0,
+          "target": {
+            "node": 2,
+            "path": "translation"
+          }
+        },
+        {
+          "sampler": 1,
+          "target": {
+            "node": 2,
+            "path": "scale"
+          }
+        },
+        {
+          "sampler": 2,
+          "target": {
+            "node": 3,
+            "path": "translation"
+          }
+        },
+        {
+          "sampler": 3,
+          "target": {
+            "node": 3,
+            "path": "scale"
+          }
+        },
+        {
+          "sampler": 4,
+          "target": {
+            "node": 4,
+            "path": "translation"
+          }
+        },
+        {
+          "sampler": 5,
+          "target": {
+            "node": 4,
+            "path": "scale"
+          }
+        },
+        {
+          "sampler": 6,
+          "target": {
+            "node": 5,
+            "path": "translation"
+          }
+        },
+        {
+          "sampler": 7,
+          "target": {
+            "node": 5,
+            "path": "scale"
+          }
+        },
+        {
+          "sampler": 8,
+          "target": {
+            "node": 6,
+            "path": "translation"
+          }
+        },
+        {
+          "sampler": 9,
+          "target": {
+            "node": 6,
+            "path": "scale"
+          }
+        },
+        {
+          "sampler": 10,
+          "target": {
+            "node": 7,
+            "path": "translation"
+          }
+        },
+        {
+          "sampler": 11,
+          "target": {
+            "node": 7,
+            "path": "scale"
+          }
+        },
+        {
+          "sampler": 12,
+          "target": {
+            "node": 8,
+            "path": "translation"
+          }
+        },
+        {
+          "sampler": 13,
+          "target": {
+            "node": 8,
+            "path": "scale"
+          }
+        },
+        {
+          "sampler": 14,
+          "target": {
+            "node": 9,
+            "path": "translation"
+          }
+        },
+        {
+          "sampler": 15,
+          "target": {
+            "node": 9,
+            "path": "scale"
+          }
+        }
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "nodes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    }
+  ],
+  "scene": 0
+}

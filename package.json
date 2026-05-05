@@ -1,0 +1,28 @@
+{
+  "name": "vue-deck",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "generate:cone-glb": "node scripts/generate-county-cone-glb.mjs",
+    "strip:signalicon-rings": "node scripts/strip-stateicon-cone.mjs",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@deck.gl/core": "^9.3.2",
+    "@deck.gl/layers": "^9.3.2",
+    "@deck.gl/mapbox": "^9.3.2",
+    "@deck.gl/mesh-layers": "^9.3.2",
+    "mapbox-gl": "^3.23.1",
+    "nuxt": "^3.0.0",
+    "vue": "latest",
+    "vue-router": "latest"
+  },
+  "devDependencies": {
+    "@gltf-transform/core": "^4.3.0",
+    "@gltf-transform/functions": "^4.3.0"
+  }
+}
