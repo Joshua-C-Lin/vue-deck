@@ -87,7 +87,8 @@ const PIN_TUNING = {
    * 加網格厚度後視覺跨度約 1.38 glTF 單位（動畫平移亦在此範圍內）。
    */
   modelYExtent: 1.38,
-  glbUrl: "/models/signalicon-rings.glb",
+  // GitHub Pages 會在 /<repo>/ 子路徑下服務；避免以 "/" 開頭導致資源 404
+  glbUrl: "models/signalicon-rings.glb",
   /** 直立軸已在 signalicon-rings.glb 用 `deck_map_z_up_rig` 預先固定；此處通常保持單位旋轉。 */
   orientation: [180, 0, 0] as [number, number, number],
   breathe: {
@@ -473,7 +474,8 @@ onMounted(async () => {
 
     // 縣市邊界（面積覆蓋呼吸）資料：public/data/twCounty2010.geo.json
     if (!map.getSource(COUNTY_SOURCE_ID)) {
-      const res = await fetch("/data/twCounty2010.geo.json");
+      // 避免以 "/" 開頭繞過 baseURL（GitHub Pages 子路徑）
+      const res = await fetch("data/twCounty2010.geo.json");
       const geojson = await res.json();
       map.addSource(COUNTY_SOURCE_ID, {
         type: "geojson",
