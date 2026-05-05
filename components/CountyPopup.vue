@@ -64,8 +64,8 @@ const statusColor = computed(() =>
 <style scoped>
 .popup-anchor {
   position: fixed;
-  top: 12px;
-  left: 12px;
+  top: calc(12px + env(safe-area-inset-top));
+  left: calc(12px + env(safe-area-inset-left));
   z-index: 9999;
 }
 
@@ -151,6 +151,33 @@ const statusColor = computed(() =>
   overflow: auto;
   font-size: 11px;
   line-height: 1.4;
+}
+
+/* RWD：小螢幕改成底部抽屜，避免擋住地圖主要區域 */
+@media (max-width: 640px) {
+  .popup-anchor {
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 calc(10px + env(safe-area-inset-right))
+      calc(10px + env(safe-area-inset-bottom))
+      calc(10px + env(safe-area-inset-left));
+  }
+
+  .popup-card {
+    width: 100%;
+    max-height: min(52vh, 420px);
+    border-radius: 16px;
+  }
+
+  .popup-header {
+    padding: 12px 12px 8px;
+  }
+
+  .popup-body {
+    padding: 10px 12px 12px;
+  }
 }
 </style>
 
