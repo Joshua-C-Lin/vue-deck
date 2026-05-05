@@ -1,8 +1,11 @@
+import { defineNuxtConfig } from "nuxt/config";
+
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
-  devtools: { enabled: true },
-  app: {
-    baseURL: '/vue-deck/'
+  devtools: { enabled: false },
+  ssr: false,
+  experimental: {
+    viteEnvironmentApi: true,
   },
   runtimeConfig: {
     public: {
