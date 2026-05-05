@@ -7,6 +7,10 @@ export default defineNuxtConfig({
   experimental: {
     viteEnvironmentApi: true,
   },
+  app: {
+    baseURL: '/vue-deck/',
+    buildAssetsDir: '/_nuxt/',
+  },
   runtimeConfig: {
     public: {
       mapboxToken: process.env.NUXT_PUBLIC_MAPBOX_TOKEN
